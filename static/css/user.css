@@ -1,0 +1,94 @@
+main
+{
+    background-color: var(--background-color);
+    padding: 1% 1% 2%;
+    border-bottom: 1px solid;
+}
+#movements
+{
+    width: 70%;
+    margin: 0 auto;
+    padding: 2% 0;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+}
+h2
+{
+    text-align: center;
+    margin-bottom: 2%;
+}
+form
+{
+    text-align: center;
+    padding: 3% 0;
+    margin: 1% auto 3%;
+    width: 70%;
+    box-shadow: 0 0 0.5rem var(--headings-color);
+}
+form > *
+{
+    margin: 0 1%;
+    border: 1px solid;
+    border-radius: 5px;
+    color: var(--text-color);
+    font-family: inherit;
+}
+form > *:not([type="submit"])
+{
+    width: calc(100%/5);
+}
+form select
+{
+    padding: 0.4rem;
+    appearance: none;
+    background: url('./svg/chevron-down.svg') right center no-repeat;
+    cursor: pointer;
+}
+form input
+{
+    padding: 0.4rem;
+}
+form input[type="date"]
+{
+    padding: 0.24rem;
+}
+form input[type="submit"]
+{
+    cursor: pointer;
+    background-color: transparent;
+    transition: all 0.1s linear;
+    padding: 0.3rem 1rem;
+    margin-top: 2%;
+    font-size: 0.9rem;
+}
+form input[type="submit"]:hover, form input[type="submit"]:focus
+{
+    background-color: var(--text-color);
+    color: #FFFFFF;
+    outline: none;
+}
+#movements > aside
+{
+    width: 50%;
+    border-bottom: 1px solid;
+    padding: 2%;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+#movements > aside:last-of-type
+{
+    border: none;
+}
+#movements > aside p
+{
+    margin: 0;
+    width: 40%;
+}
+#movements > aside p:last-of-type
+{
+    text-align: right;
+}

@@ -1,0 +1,45 @@
+#copyright
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+}
+#copyright > aside
+{
+    box-sizing: border-box;
+    padding: 0 1%;
+}
+#copyright > aside:nth-of-type(2n)
+{
+    text-align: right;
+    width: 20%;
+}
+#copyright > aside:nth-of-type(2n) a
+{
+    margin-left: 2%;
+}
+#copyright > aside:nth-of-type(2n+1)
+{
+    text-align: left;
+    width: 80%;
+}
+#copyright > aside:nth-of-type(2n+1) a
+{
+    margin-right: 2%;
+}
+p.socials
+{
+    margin: 0;
+    font-size: 1.3rem;
+}
+#copyright > p
+{
+    width: 100%;
+    padding-top: 2%;
+    text-align: center;
+    margin: 2% 0 0;
+    border-top: 1px solid;
+}

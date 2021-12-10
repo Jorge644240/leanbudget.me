@@ -1,0 +1,41 @@
+nav
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 2%;
+    border-bottom: 1px solid var(--text-color);
+}
+nav > a
+{
+    color: var(--headings-color);
+    font-family: 'Outfit';
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+nav > *
+{
+    width: 50%;
+}
+nav > div
+{
+    text-align: right;
+}
+nav > div a
+{
+    padding: 1% 2%;
+    margin: 0 1%;
+}
+nav > div a:last-of-type
+{
+    color: var(--headings-color);
+    border: 1px solid;
+    border-radius: 5px;
+}
+nav > div a:last-of-type:hover
+{
+    color: #FFFFFF;
+    background: var(--headings-color);
+}

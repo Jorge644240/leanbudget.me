@@ -1,0 +1,36 @@
+main
+{
+    background-color: var(--background-color);
+    padding: 3%;
+    border-bottom: 1px solid var(--text-color);
+    text-align: center;
+}
+h1
+{
+    color: var(--text-color);
+    margin-top: 2%;
+}
+h1 span, h1 + p span
+{
+    color: var(--headings-color);
+}
+h1 + p
+{
+    font-size: 1.1rem;
+    width: 50%;
+    margin: 1% auto 2%;
+}
+main a
+{
+    padding: 2%;
+    display: inline-block;
+    border-radius: 10px;
+    background-color: var(--headings-color);
+    color: var(--background-color);
+    transition: all 0.2s linear;
+}
+main a:hover
+{
+    color: var(--background-color);
+    box-shadow: 5px 5px 0.5rem #447BFC;
+}

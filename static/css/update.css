@@ -1,0 +1,53 @@
+body
+{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+form
+{
+    padding: 2% 3%;
+    margin: 1% 0;
+    background-color: var(--background-color);
+    width: 30%;
+    border-radius: 10px;
+}
+form > *
+{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    font-family: inherit;
+}
+form > input:not([type="submit"])
+{
+    margin-bottom: 4%;
+    padding: 0.3rem 1rem;
+    background-color: transparent;
+    border-color: transparent;
+    border-bottom: 1px solid var(--text-color);
+    font-size: 0.9rem;
+}
+form > input:not([type="submit"]):focus
+{
+    outline: none;
+}
+form > input[type="submit"]
+{
+    padding: 0.4rem 1rem;
+    background-color: transparent;
+    border: 1px solid;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.1s linear;
+}
+form > input[type="submit"]:hover, form > input[type="submit"]:focus
+{
+    background-color: var(--text-color);
+    color: var(--background-color);
+    outline: none;
+}

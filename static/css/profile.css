@@ -1,0 +1,54 @@
+main
+{
+    padding: 2%;
+    border-bottom: 1px solid;
+}
+h1
+{
+    text-align: center;
+}
+#profile
+{
+    width: 65%;
+    margin: 2% auto 1%;
+    padding: 1% 2%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-color);
+    border-radius: 10px;
+}
+#profile > *
+{
+    width: 50%;
+}
+.attribute
+{
+    margin: 1% auto;
+    font-size: 1.3rem;
+    font-weight: 600;
+    font-family: 'Outfit';
+}
+.attribute + p
+{
+    text-align: right;
+}
+#profile > a
+{
+    text-align: center;
+    margin: 2% 0 1%;
+    padding: 1% 2%;
+    border: 1px solid;
+    width: auto;
+    font-size: 0.9rem;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.1s linear;
+}
+#profile > a:hover
+{
+    background-color: var(--text-color);
+    color: var(--background-color);
+}

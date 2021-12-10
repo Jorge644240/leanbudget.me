@@ -1,0 +1,62 @@
+footer
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2%;
+    border-bottom: 1px solid;
+}
+footer > aside
+{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+footer > aside:first-of-type
+{
+    width: 35%;
+    text-transform: uppercase;
+}
+footer aside:first-of-type a:first-of-type
+{
+    font-size: 1.8rem;
+    font-family: 'Outfit';
+    font-weight: 600;
+    color: var(--headings-color);
+    text-transform: capitalize;
+}
+footer > aside.links
+{
+    width: calc(65%/3);
+}
+footer > aside a
+{
+    margin: 1% 0;
+    transition: all 0.2s linear;
+}
+footer > aside:first-of-type a:not(:first-of-type):hover
+{
+    border-left: 3px solid;
+    padding-left: 0.5rem;
+}
+p.title
+{
+    margin-top: 0;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+aside.links .link i
+{
+    opacity: 0;
+    transition: opacity 0.2s linear;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+aside.links .link:hover i
+{
+    opacity: 1;
+}

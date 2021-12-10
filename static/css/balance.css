@@ -1,0 +1,22 @@
+#balance
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+    width: 50%;
+    margin: 1% auto 2%;
+    box-shadow: 5px 5px 1rem var(--headings-color);
+    background-color: #FFFFFF;
+}
+#balance > *
+{
+    width: 50%;
+    margin: 0;
+}
+#balance > .movement
+{
+    text-align: right;
+}

@@ -1,0 +1,13 @@
+.movement
+{
+    font-family: 'Outfit';
+    font-size: 1.5rem;
+}
+.income
+{
+    color: var(--success-color);
+}
+.expense
+{
+    color: var(--danger-color);
+}
