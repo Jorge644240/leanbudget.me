@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <%- include('partials/meta') %> 
+        <%- include('partials/fonts') %>
+        <%- include('partials/icons') %> 
+        <link rel="stylesheet" href="/css/user.css">
+        <link rel="stylesheet" href="/css/balance.css">
+        <link rel="stylesheet" href="/css/movements.css">
+        <%- include('partials/styles') %> 
+    </head>
+    <body>
+        <header>
+            <%- include('partials/header') %> 
+        </header>
+        <main>
+            <aside id="balance">
+                <p>Your Balance</p>
+                <% const balance = budget.balance.toFixed(2) %> 
+                <p class="movement <%= budget.balance >= 0 ? "income" : "expense" %>">$<%= `${balance}`.split(".")[0]+"."+`${balance}`.split(".")[1].slice(0, 2) %></p>
+            </aside>
+            <section id="movements">
+                <h2>Your Movements</h2>
+                <form method="post">
+                    <select name="movement" id="movement" required>
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+                    <input type="number" name="amount" id="amount" placeholder="99.99" step=".01" min="0" required>
+                    <br>
+                    <input type="submit" value="Add">
+                </form>
+                <% budget.movements.reverse().forEach(movement => { %> 
+                    <aside>
+                        <p class="date"><%= movement.date %></p>
+                        <p class="movement <%= movement.movement %>">$<%= movement.amount %></p>
+                    </aside>
+                <% }); %> 
+            </section>
+        </main>
+        <%- include('partials/footer') %> 
+        <%- include('partials/copyright') %> 
+        <script src="/js/year.js"></script>
+    </body>
+</html>

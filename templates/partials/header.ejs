@@ -1,0 +1,16 @@
+<header>
+	<nav>
+		<a href="/">Lean Budget</a>
+		<div>
+			<% if (path.includes("me/profile")) { %>
+			<a href="/me/budget">Budget</a>
+			<% } else if (path.includes("me/budget")) { %>
+			<a href="/me/profile">Profile</a>
+			<% } else { %>
+			<a href="/learn">Learn</a>
+			<a href="/blog">Blog</a>
+			<a href="/login">Log In</a>
+			<% } %>
+		</div>
+	</nav>
+</header>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <%- include('partials/meta') %> 
+        <%- include('partials/fonts') %>
+        <%- include('partials/icons') %> 
+        <link rel="stylesheet" href="/css/profile.css">
+        <%- include('partials/styles') %> 
+    </head>
+    <body>
+        <header>
+            <%- include('partials/header') %> 
+        </header>
+        <main>
+            <h1>Personal Profile</h1>
+            <section id="profile">
+                <p class="attribute">Your Name</p>
+                <p class="value"><%= user.name %></p>
+                <p class="attribute">Your Email</p>
+                <p class="value"><%= user.email %></p>
+                <a href="/me/profile/update">Change Password</a>
+            </section>
+        </main>
+        <%- include('partials/footer') %> 
+        <%- include('partials/copyright') %> 
+        <script src="/js/year.js"></script>
+    </body>
+</html>

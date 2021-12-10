@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="title" content=<%= title %>>
+        <meta name="author" content="Bletchley Technological Solutions Inc.">
+        <title><%= title %></title>
+        <%- include('partials/fonts') %> 
+        <link rel="stylesheet" href="/css/variables.css">
+        <link rel="stylesheet" href="/css/body.css">
+        <link rel="stylesheet" href="/css/headings.css">
+        <link rel="stylesheet" href="/css/update.css">
+    </head>
+    <body>
+        <h1>Update Password</h1>
+        <form method="POST">
+            <label for="old">Old Password *</label>
+            <input type="password" name="old" id="old" minlength="10" required>
+            <label for="new">New Password *</label>
+            <input type="password" name="pass" id="new" minlength="10" required>
+            <label for="repeatNew">Repeat New Password *</label>
+            <input type="password" name="verify" id="repeatNew" minlength="10" required>
+            <p id="error"><%= error %></p>
+            <input type="submit" value="Update">
+        </form>
+        <script src="/js/update.js"></script>
+    </body>
+</html>

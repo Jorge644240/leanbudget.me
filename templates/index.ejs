@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Bletchley Technologcial Solutions Inc.">
+        <meta name="title" content=<%= title %>>
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <title><%= title %></title>
+        <%- include('partials/fonts') %>
+        <%- include('partials/icons') %> 
+        <link rel="stylesheet" href="/css/variables.css">
+        <link rel="stylesheet" href="/css/links.css">
+        <link rel="stylesheet" href="/css/nav.css">
+        <link rel="stylesheet" href="/css/body.css">
+        <link rel="stylesheet" href="/css/headings.css">
+        <link rel="stylesheet" href="/css/footer.css">
+        <link rel="stylesheet" href="/css/copyright.css">
+        <link rel="stylesheet" href="/css/index.css">
+    </head>
+    <body>
+        <%- include('partials/header') %>
+        <main>
+            <h1>Simple, accountable <span>expense tracking</span> for anyone</h1>
+            <p>Lean Budget is an online <span>expense tracking</span> tool that allows you to know how your money moves </p>
+            <a href="/signup">TRACK YOUR MONEY</a>
+        </main>
+        <%- include('partials/footer') %> 
+        <%- include('partials/copyright') %>
+        <script src="/js/year.js"></script>
+    </body>
+</html>
