@@ -28,6 +28,7 @@ footer aside:first-of-type a:first-of-type
     font-weight: 600;
     color: var(--headings-color);
     text-transform: capitalize;
+    margin: 0 0 2%;
 }
 footer > aside.links
 {
