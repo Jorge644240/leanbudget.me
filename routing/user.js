@@ -148,6 +148,11 @@ router.post("/profile/update", (req, res) => {
     } else res.redirect("/login");
 });
 
+router.get("/logout", (req, res) => {
+    res.clearCookie('u_ID');
+    res.redirect("/");
+});
+
 router.get("/recovery", (req, res) => {
     if (req.query.user) {
         User.findOne({_id: req.query.user}, (err, user) => {
