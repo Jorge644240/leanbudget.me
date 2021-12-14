@@ -3,7 +3,7 @@ footer
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-start;
     padding: 2%;
     border-bottom: 1px solid;
