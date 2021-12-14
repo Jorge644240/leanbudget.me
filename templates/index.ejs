@@ -1,72 +1,118 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="Bletchley Technological Solutions Inc.">
-        <meta name="title" content=<%= title %>>
-        <meta name="description" content="">
-        <meta name="keywords" content="">
-        <title><%= title %></title>
-        <%- include('partials/fonts') %>
-        <%- include('partials/icons') %> 
-        <%- include('partials/styles') %> 
-        <link rel="stylesheet" href="/css/index.css">
-    </head>
-    <body>
-        <%- include('partials/header') %>
-        <main>
-            <h1>Simple, accountable <span>expense tracking</span> for anyone</h1>
-            <p>Lean Budget is an online <span>expense tracking</span> tool that allows you to know how <span>exactly</span> your money moves.</p>
-            <a class="button" href="/signup">TRACK YOUR MONEY - COMPLETELY FREE</a>
-            <img src="/images/index/app.jpg" alt="Lean Budget app" id="app-image" title="Lean Budget">
-            <section id="features">
-                <h2>Features</h2>
-                <aside class="feature">
-                    <div>
-                        <img src="/images/index/money-tracking.jpg" alt="2-Step Money Tracking">
-                    </div>
-                    <div>
-                        <h3>2-Step Money Tracking</h3>
-                        <ul>
-                            <li>Choose the type of movement</li>
-                            <li>Enter the amount</li>
-                            <li>Add it to your existing budget</li>
-                        </ul>
-                    </div>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="author" content="Bletchley Technological Solutions Inc." />
+		<meta name="title" content=<%=title %> />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<title><%= title %></title>
+		<%- include('partials/fonts') %> <%- include('partials/icons') %> <%- include('partials/styles') %>
+		<link rel="stylesheet" href="/css/index.css" />
+	</head>
+	<body>
+		<%- include('partials/header') %>
+		<main>
+			<h1>Simple, accountable <span>expense tracking</span> for anyone</h1>
+			<p>Lean Budget is an online <span>expense tracking</span> tool that allows you to know how <span>exactly</span> your money moves.</p>
+			<a class="button" href="/signup">TRACK YOUR MONEY - COMPLETELY FREE</a>
+			<img src="/images/index/app.jpg" alt="Lean Budget app" id="app-image" title="Lean Budget" />
+			<section id="features">
+				<h2>Features</h2>
+				<aside class="feature">
+					<div>
+						<img src="/images/index/money-tracking.jpg" alt="2-Step Money Tracking" />
+					</div>
+					<div>
+						<h3>2-Step Money Tracking</h3>
+						<ul>
+							<li>Choose the type of movement</li>
+							<li>Enter the amount</li>
+							<li>Add it to your existing budget</li>
+						</ul>
+					</div>
+				</aside>
+				<aside class="feature">
+					<div>
+						<h3>Complete List of your Movements</h3>
+						<ul>
+							<li>See ALL of your movements</li>
+							<li>Automatically sorted by newest</li>
+							<li>Color-coded for simplicity</li>
+						</ul>
+					</div>
+					<div>
+						<img src="/images/index/budget.jpg" alt="Complete List of your Movements" />
+					</div>
+				</aside>
+				<aside class="feature">
+					<div>
+						<img src="/images/index/reports.jpg" alt="Monthly Reports" />
+					</div>
+					<div>
+						<h3>Monthly Insights</h3>
+						<ul>
+							<li>Personal PDF reports</li>
+							<li>Movements Breakdown</li>
+							<li>Customized Insights</li>
+						</ul>
+					</div>
+				</aside>
+				<a class="button" href="/features">SEE ALL FEATURES</a>
+			</section>
+			<section id="reasons">
+				<h2>Why use Lean Budget?</h2>
+				<aside class="reason">
+					<img src="https://icons.getbootstrap.com/assets/icons/arrow-repeat.svg" alt="Movement Intelligence" />
+					<h3>Movement Intelligence</h3>
+					<p>Know and identify how your money moves every step of the way, from the moment it comes in to the moment it leaves your hands.</p>
+					<a href="/features#intelligence">Learn More</a>
+				</aside>
+				<aside class="reason">
+					<img src="https://icons.getbootstrap.com/assets/icons/bar-chart-line-fill.svg" alt="Visual Insights" />
+					<h3>Visual Insights</h3>
+					<p>Easily go over your previous' month's expenses and incomes and identify areas to change and improve. Visually.</p>
+					<a href="/features#insights">Learn More</a>
+				</aside>
+				<aside class="reason">
+					<img src="https://icons.getbootstrap.com/assets/icons/person-check-fill.svg" alt="Accountability" />
+					<h3>Accountability</h3>
+					<p>Lean Budget helps you stay accountable for inputting your expenses and incomes through weekly email reminders.</p>
+					<a href="/features#accountability">Learn More</a>
+				</aside>
+				<aside class="reason">
+					<img src="https://icons.getbootstrap.com/assets/icons/shield-fill-check.svg" alt="Privacy" />
+					<h3>Data Privacy</h3>
+					<p>Every month, after having sent you your personal email report, your data is completely erased form our database.</p>
+					<a href="/features#privacy">Learn More</a>
+				</aside>
+			</section>
+			<section id="cta">
+				<h2>Still Unsure?</h2>
+                <aside>
+    				<p>
+	    				<img src="https://icons.getbootstrap.com/assets/icons/coin.svg" alt="Free Forever" />
+		    			<br>
+                        Free Forever
+			    	</p>
+				    <p>
+					    <img src="https://icons.getbootstrap.com/assets/icons/clipboard-data.svg" alt="Full-Fledged Analysis" />
+    					<br>
+                        Full-fledged Analysis
+	    			</p>
+		    		<p>
+			    		<img src="https://icons.getbootstrap.com/assets/icons/lock-fill.svg" alt="Unparalleled Data Privacy" />
+				    	<br>
+                        Unparalleled Data Privacy
+				    </p>
                 </aside>
-                <aside class="feature">
-                    <div>
-                        <h3>Complete List of your Movements</h3>
-                        <ul>
-                            <li>See ALL of your movements</li>
-                            <li>Automatically sorted by newest</li>
-                            <li>Intentfully color-coded</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <img src="/images/index/budget.jpg" alt="Complete List of your Movements">
-                    </div>
-                </aside>
-                <aside class="feature">
-                    <div>
-                        <img src="/images/index/reports.jpg" alt="Monthly Reports">
-                    </div>
-                    <div>
-                        <h3>Monthly Insights</h3>
-                        <ul>
-                            <li>Personal PDF reports</li>
-                            <li>Movements Breakdown</li>
-                            <li>Customized Insights</li>
-                        </ul>
-                    </div>
-                </aside>
-                <a class="button" href="/features">SEE ALL FEATURES</a>
-            </section>
-        </main>
-        <%- include('partials/footer') %> 
-        <%- include('partials/copyright') %>
-        <script src="/js/year.js"></script>
-    </body>
+                <a href="/signup" class="button">Get Started Now</a>
+			</section>
+		</main>
+		<%- include('partials/footer') %> <%- include('partials/copyright') %>
+		<script src="/js/index.js"></script>
+		<script src="/js/year.js"></script>
+	</body>
 </html>

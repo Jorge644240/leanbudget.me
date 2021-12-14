@@ -16,11 +16,12 @@ h1 span, h1 + p span
 }
 h1 + p
 {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     width: 50%;
     margin: 1% auto 2%;
+    line-height: 1.5;
 }
-main a
+main a.button
 {
     padding: 2%;
     display: inline-block;
@@ -28,9 +29,143 @@ main a
     background-color: var(--headings-color);
     color: var(--background-color);
     transition: all 0.2s linear;
+    text-transform: uppercase;
 }
-main a:hover
+main a.button:hover
 {
     color: var(--background-color);
     box-shadow: 5px 5px 0.5rem #447BFC;
+}
+main #app-image
+{
+    max-width: 90%;
+    display: block;
+    margin: 3% auto;
+    box-shadow: 0 0 0.3rem var(--text-color);
+}
+.feature
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 3% 1%;
+    background-color: #FFFFFF;
+    margin: 2% 0;
+    box-shadow: 5px 5px 0.5rem transparent;
+    transition: all 0.2s linear;
+}
+.feature:hover
+{
+    box-shadow: 5px 5px 0.5rem #999999;
+}
+.feature:last-of-type
+{
+    border-bottom: none;
+}
+.feature > *
+{
+    width: 50%;
+}
+.feature img
+{
+    max-width: 90%;
+    border: 1px solid var(--headings-color);
+}
+.feature ul
+{
+    list-style-image: url('./svg/tick.svg');
+    font-size: 1.1rem;
+    width: 70%;
+    margin: 5% auto 0;
+}
+.feature li
+{
+    margin: 3% 0;
+    text-align: left;
+}
+#reasons
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#reasons h2
+{
+    margin-top: 3%;
+}
+#reasons .reason
+{
+    width: 30%;
+    margin: 3% 0;
+    box-shadow: 0 0 0.15rem var(--headings-color);
+    padding: 2%;
+    background: #FFFFFF;
+    position: relative;
+    bottom: 0;
+    transition: all 0.1s ease-in-out;
+    text-align: left;
+    cursor: pointer;
+}
+#reasons .reason:hover
+{
+    bottom: 5px;
+    box-shadow: 0 0 0.5rem var(--headings-color);
+}
+.reason img
+{
+    width: 10%;
+}
+.reason a
+{
+    color: var(--headings-color);
+    font-weight: 600;
+    transition: all 0.1s linear;
+}
+.reason a:hover
+{
+    padding-left: 1%;
+    border-left: 3px solid;
+}
+#cta
+{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+#cta h2
+{
+    font-size: 4rem;
+}
+#cta aside
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin-bottom: 1%;
+}
+#cta p
+{
+    width: 25%;
+    margin: 0;
+    font-size: 1.5rem;
+    padding: 3% 2%;
+}
+#cta p:not(:last-of-type)
+{
+    border-right: 1px solid;
+}
+#cta p img
+{
+    width: 18%;
+    margin-bottom: 2%;
 }
