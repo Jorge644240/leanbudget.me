@@ -4,28 +4,66 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="Bletchley Technologcial Solutions Inc.">
+        <meta name="author" content="Bletchley Technological Solutions Inc.">
         <meta name="title" content=<%= title %>>
         <meta name="description" content="">
         <meta name="keywords" content="">
         <title><%= title %></title>
         <%- include('partials/fonts') %>
         <%- include('partials/icons') %> 
-        <link rel="stylesheet" href="/css/variables.css">
-        <link rel="stylesheet" href="/css/links.css">
-        <link rel="stylesheet" href="/css/nav.css">
-        <link rel="stylesheet" href="/css/body.css">
-        <link rel="stylesheet" href="/css/headings.css">
-        <link rel="stylesheet" href="/css/footer.css">
-        <link rel="stylesheet" href="/css/copyright.css">
+        <%- include('partials/styles') %> 
         <link rel="stylesheet" href="/css/index.css">
     </head>
     <body>
         <%- include('partials/header') %>
         <main>
             <h1>Simple, accountable <span>expense tracking</span> for anyone</h1>
-            <p>Lean Budget is an online <span>expense tracking</span> tool that allows you to know how your money moves </p>
-            <a href="/signup">TRACK YOUR MONEY</a>
+            <p>Lean Budget is an online <span>expense tracking</span> tool that allows you to know how <span>exactly</span> your money moves.</p>
+            <a class="button" href="/signup">TRACK YOUR MONEY - COMPLETELY FREE</a>
+            <img src="/images/index/app.jpg" alt="Lean Budget app" id="app-image" title="Lean Budget">
+            <section id="features">
+                <h2>Features</h2>
+                <aside class="feature">
+                    <div>
+                        <img src="/images/index/money-tracking.jpg" alt="2-Step Money Tracking">
+                    </div>
+                    <div>
+                        <h3>2-Step Money Tracking</h3>
+                        <ul>
+                            <li>Choose the type of movement</li>
+                            <li>Enter the amount</li>
+                            <li>Add it to your existing budget</li>
+                        </ul>
+                    </div>
+                </aside>
+                <aside class="feature">
+                    <div>
+                        <h3>Complete List of your Movements</h3>
+                        <ul>
+                            <li>See ALL of your movements</li>
+                            <li>Automatically sorted by newest</li>
+                            <li>Intentfully color-coded</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <img src="/images/index/budget.jpg" alt="Complete List of your Movements">
+                    </div>
+                </aside>
+                <aside class="feature">
+                    <div>
+                        <img src="/images/index/reports.jpg" alt="Monthly Reports">
+                    </div>
+                    <div>
+                        <h3>Monthly Insights</h3>
+                        <ul>
+                            <li>Personal PDF reports</li>
+                            <li>Movements Breakdown</li>
+                            <li>Customized Insights</li>
+                        </ul>
+                    </div>
+                </aside>
+                <a class="button" href="/features">SEE ALL FEATURES</a>
+            </section>
         </main>
         <%- include('partials/footer') %> 
         <%- include('partials/copyright') %>
