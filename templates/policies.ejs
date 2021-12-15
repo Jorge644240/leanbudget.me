@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="author" content="Bletchley Technological Solutions Inc." />
+		<meta name="title" content=<%=title %> />
+		<title><%= title %></title>
+		<%- include('partials/fonts') %> 
+		<%- include('partials/icons') %> 
+		<%- include('partials/styles') %>
+		<link rel="stylesheet" href="/css/policies.css">
+    </head>
+    <body>
+		<%- include('partials/header') %>
+		<main>
+	        <% if (policy === 'cookies') { %>
+    	        <%- include('partials/policies/cookies') %> 
+        	<% } else if (policy === 'terms') { %>
+            	<%- include('partials/policies/terms') %> 
+			<% } else if (policy === 'privacy') { %>
+				<%- include('partials/policies/privacy') %> 
+			<% } else if (policy === 'security') { %>
+				<%- include('partials/policies/security') %> 
+			<% } %> 
+		</main>
+		<%- include('partials/footer') %> 
+		<%- include('partials/copyright') %>
+		<script src="/js/year.js"></script>
+    </body>
+</html>

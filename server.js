@@ -1,8 +1,10 @@
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
+const routes = require("./routing/routes");
 const login = require("./routing/login");
 const user = require("./routing/user");
+const policies = require("./routing/policies");
 const files = require("./routing/files");
 const { connect } = require("mongoose");
 const app = express();
@@ -15,16 +17,13 @@ app.use(cors());
 app.set("view engine", "ejs");
 app.set("views", "templates");
 
-app.get("/", (req, res) => {
-    res.render("index", {
-        title: "Lean Budget - 100% Free Expense Tracker",
-        path: req.originalUrl
-    });
-});
+app.use(routes);
 
 app.use("/me", user);
 
 app.use(login);
+
+app.use("/policies", policies);
 
 app.use(files);
 

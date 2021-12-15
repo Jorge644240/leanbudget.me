@@ -1,0 +1,33 @@
+main
+{
+    background-color: var(--background-color);
+    padding: 1% 2%;
+    text-align: center;
+    border-bottom: 1px solid;
+}
+h2
+{
+    margin-bottom: 1%;
+}
+ul
+{
+    list-style-type: none;
+    margin: 1% 0;
+}
+ul li
+{
+    padding: 2% 1%;
+}
+ul li:not(:last-of-type)
+{
+    border-bottom: 1px solid;
+}
+ul li p
+{
+    margin: 0;
+}
+main a
+{
+    color: var(--headings-color);
+    text-decoration: underline;
+}
