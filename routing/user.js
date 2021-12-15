@@ -153,21 +153,4 @@ router.get("/logout", (req, res) => {
     res.redirect("/");
 });
 
-router.get("/recovery", (req, res) => {
-    if (req.query.user) {
-        User.findOne({_id: req.query.user}, (err, user) => {
-            if (err) {
-                console.error(err);
-                res.redirect("/error");
-            } else if (!user) {
-                res.redirect("/signup");
-            } else {
-                res.render("recovery", {
-                    title: 'Recover Password'
-                });
-            }
-        });
-    } else res.redirect("/signup");
-});
-
 module.exports = router;
