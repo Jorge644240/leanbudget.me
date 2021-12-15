@@ -24,10 +24,6 @@ app.get("/", (req, res) => {
 
 app.use("/me", user);
 
-app.get("/recovery", (req, res) => {
-    res.render("recovery", {})
-});
-
 app.use(login);
 
 app.use(files);
