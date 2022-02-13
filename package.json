@@ -9,15 +9,15 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/Jorge644240/expensetracker.me.git"
+		"url": "git+https://github.com/Jorge644240/leanbudget.me.git"
 	},
 	"author": "Bletchley Technologcial Solutions Inc.",
 	"license": "UNLICENSE",
 	"private": true,
 	"bugs": {
-		"url": "https://github.com/Jorge644240/expensetracker.me/issues"
+		"url": "https://github.com/Jorge644240/leanbudget.me/issues"
 	},
-	"homepage": "https://github.com/Jorge644240/expensetracker.me#readme",
+	"homepage": "https://github.com/Jorge644240/leanbudget.me#readme",
 	"dependencies": {
 		"@mailchimp/mailchimp_marketing": "^3.0.72",
 		"body-parser": "^1.19.0",
