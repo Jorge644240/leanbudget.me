@@ -28,6 +28,7 @@
 		"email-existence": "^0.1.6",
 		"express": "^4.17.1",
 		"hash.js": "^1.1.7",
+		"marked": "^4.0.12",
 		"mongoose": "^6.0.13",
 		"mongoose-encryption": "^2.1.2",
 		"uuid": "^8.3.2"
