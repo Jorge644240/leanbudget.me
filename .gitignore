@@ -1,3 +1,5 @@
 .env
 node_modules/
 deploy.sh
+static/images/users/*.jpg
+static/videos/*.mp4
