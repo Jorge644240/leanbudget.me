@@ -1,0 +1,20 @@
+<body style="padding: 2%;">
+    <h1 style="font-family: Arial, Helvetica, sans-serif; color: #0059ca; margin: 0; width: 100%; font-weight: 700; text-align: center; margin: 1% auto 2%;">Lean Budget</h1>
+    <p>Hello there, <strong><%= name %></strong>!</p>
+    <p>As of today (<%= new Date().toLocaleDateString() %>), you have created <strong><%= userBudget.movements.length %> movements</strong>.</p>
+    <% if (userBudget.movements.length > 0) { %>
+        <p>Last one of these was on <strong><%= new Date(userBudget.movements[0].date).toDateString() %></strong>.</p>
+    <% } %>  
+    <p>
+        If there are any new movements you haven't yet entered, go ahead and <strong>click the button below</strong> to do so
+        <i class="bi-arrow-down-short"></i>
+    </p>
+    <a href="leanbudget.me/me/budget" style="text-decoration: none; display: block; width: 20%; margin: 0 auto; border: 1px solid; border-radius: 5px; padding: 1% 2%; font-weight: 600; cursor: pointer; text-transform: uppercase; background-color: #0059ca; color: #efefff; text-align: center;">
+        Add Movement(s)
+    </a>
+    <p>
+        If the button above doesn't work, click, <a href="leanbudget.me/me/budget">here</a> or copy and paste the following link to your browser's URL bar:
+        <br>
+        <em style="color: #000000; text-decoration: none;">leanbudget.me/me</em>
+    </p>
+</body>

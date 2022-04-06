@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="title" content="<%= month %>'s Report - Lean Budget" />
+		<meta name="author" content="Bletchley Technological Solutions Inc." />
+		<title><%= month %>'s Report - Lean Budget</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css" />
+		<style>
+			:root {
+				--background-color: #efefff;
+				--text-color: #3a405a;
+				--headings-color: #0059ca;
+				--success-color: #279320;
+				--danger-color: #ef1920;
+			}
+			html {
+				scroll-behavior: smooth;
+			}
+			body {
+				margin: 0;
+				color: var(--text-color);
+				font-family: "Inter";
+			}
+			h1, h2, h3 {
+				color: var(--headings-color);
+				font-family: "Outfit";
+				margin: 0;
+				width: 100%;
+			}
+			h1 {
+				font-size: 2.5rem;
+				font-weight: 700;
+				text-align: center;
+                margin: 1% auto 2%;
+			}
+			h2 {
+				font-size: 2.2rem;
+				font-weight: 600;
+			}
+			h3 {
+				font-size: 1.7rem;
+				font-weight: 500;
+			}
+            #balance
+            {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                padding: 2%;
+                width: 50%;
+                margin: 1% auto 2%;
+                box-shadow: 5px 5px 1rem var(--headings-color);
+                background-color: #FFFFFF;
+            }
+            #balance > *
+            {
+                width: 50%;
+                margin: 0;
+            }
+            #balance > .movement
+            {
+                text-align: right;
+            }
+            .movement
+            {
+                font-family: 'Outfit';
+                font-size: 1.5rem;
+            }
+            .income
+            {
+                color: var(--success-color);
+            }
+            .expense
+            {
+                color: var(--danger-color);
+            }
+            .chart
+            {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+            }
+            .chart > *:not(h2)
+            {
+                box-sizing: border-box;
+                max-width: 50%;
+                padding: 1%;
+            }
+			h2
+			{
+				text-align: center;
+			}
+			.text
+			{
+                width: 50%;
+				font-size: 1.2rem;
+			}
+			.text span
+			{
+				font-weight: 600;
+			}
+			.text p
+			{
+				margin: 1% 0 0;
+			}
+			canvas[id]
+			{
+				max-height: 80vh;
+			}
+			ul
+			{
+				list-style-type: none;
+				padding: 0 1%;
+				margin: 2% 0;
+			}
+			ul i
+			{
+				font-size: 1.5rem;
+			}
+			@media screen and (max-width: 550px) {
+			}
+		</style>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	</head>
+	<body>
+		<main>
+			<h1>Your <%= month %> Report</h1>
+            <aside id="balance">
+                <p>Your Balance</p>
+                <% const balance = budget.balance.toFixed(2) %> 
+                <p class="movement <%= budget.balance >= 0 ? "income" : "expense" %>">$<%= `${balance}`.split(".")[0]+"."+`${balance}`.split(".")[1].slice(0, 2) %></p>
+            </aside>
+            <aside class="chart" id="bot">
+                <h2>Balance Over Time</h2>
+                <div class="text">
+                    <p>Throughout <%= month %>, your balance changed <span><%= budget.movements.length %> times</span>.</p>
+					<p>Here are all of your balance amounts through the past month:</p>
+					<ul>
+						<% balances.forEach((balance, index) => { %> 
+							<li class="movement <%= balance === 0 ? '' : balance > 0 ? "income" : "expense" %>">
+								$<%= balance.toFixed(2) %>
+								<% if (balance === 0) { %>
+
+								<% } else if (balance === balances[index-1]) { %>
+									<i class="bi-dash"></i>
+								<% } else if (balance > balances[index-1]) { %>
+									<i class="bi-arrow-up-short income"></i>
+								<% } else if (balance < balances[index-1]) {%>
+									<i class="bi-arrow-down-short expense"></i>
+								<% } %>     
+							</li>
+						<% }); %> 
+					</ul>
+                </div>
+				<canvas id="botChart" height="100"></canvas>
+				<script>
+					const botData = [];
+					document.querySelectorAll("#bot li").forEach(item => botData.push(item.innerText.slice(1)));
+					new Chart(document.querySelector("#botChart"), {
+					    type: 'line',
+					    data: {
+					        labels: [ ...new Array(botData.length).keys() ],
+					        datasets: [{
+					            label: 'Balance Over Time',
+					            borderColor: document.querySelector("#balance p.movement").classList.contains("income") ? '#279320' : '#ef1920',
+					            backgroundColor: document.querySelector("#balance p.movement").classList.contains("income") ? '#279320' : '#ef1920',
+					            data: botData
+					        }]
+					    }
+					});
+				</script>
+            </aside>
+			<aside class="chart" id="itoe">
+				<h2>Income to Expense Ratio</h2>
+				<canvas id="itoeChart" height="100"></canvas>
+				<div class="text">
+					<% const totalMovements = budget.movements.length, totalExpenses = budget.movements.filter(movement => movement.movement === 'expense').length, totalIncomes = budget.movements.filter(movement => movement.movement === 'income').length %> 
+					<p>Out of <%= totalMovements %> movements, <span id="expenses"><%= totalExpenses %></span> were <span class="expense">outgoing movements</span> and <span id="incomes"><%= totalIncomes %></span> were <span class="income">incoming movements</span>.</p>
+					<p><span><%= totalMovements>0 ? (totalExpenses/totalMovements * 100).toFixed(2) : '0' %>%</span> of your movements were <span class="expense">expenses</span>.</p>
+					<p><span><%= totalMovements>0 ? (totalIncomes/totalMovements * 100).toFixed(2) : '0' %>%</span> of your movements were <span class="income">incomes</span>.</p>
+				</div>
+				<script>
+					const itoeData = [];
+					document.querySelectorAll("#itoe span[id]").forEach(item => itoeData.push(item.innerText));
+					new Chart(document.querySelector("#itoeChart"), {
+						type: 'doughnut',
+						data: {
+							labels: ['Expenses', 'Incomes'],
+							datasets: [{
+								label: 'Income to Expense Ratio',
+								data: itoeData,
+								backgroundColor: ['#ef1920', '#279320'],
+								hoverOffset: 5
+							}]
+						}
+					});
+				</script>
+			</aside>
+		</main>
+        <%- include('../partials/scripts') %>
+	</body>
+</html>

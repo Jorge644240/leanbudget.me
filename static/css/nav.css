@@ -15,6 +15,14 @@ nav > a
     font-size: 2.5rem;
     font-weight: 600;
 }
+nav > i
+{
+    display: none;
+    color: #000000;
+    cursor: pointer;
+    padding: 1%;
+    font-size: 2rem;
+}
 nav > div
 {
     text-align: right;
@@ -24,6 +32,10 @@ nav > div a
 {
     padding: 1% 2%;
     margin: 0 1%;
+}
+nav > div br
+{
+    display: none;
 }
 nav > div a:last-of-type
 {
@@ -35,4 +47,33 @@ nav > div a:last-of-type:hover
 {
     color: #FFFFFF;
     background: var(--headings-color);
+}
+@media screen and (max-width: 550px)
+{
+    nav > i
+    {
+        display: block;
+    }
+    nav > div
+    {
+        display: none;
+        width: 100%;
+    }
+    nav > div br
+    {
+        display: block;
+    }
+    nav > div.show
+    {
+        display: block;
+        padding: 2% 0;
+    }
+    nav > div a
+    {
+        display: inline-block;
+    }
+    nav > div a:last-of-type
+    {
+        margin-top: 1%;
+    }
 }

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="author" content="Bletchley Technological Solutions Inc." />
+		<meta name="title" content=<%=title %> />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<title><%= title %></title>
+		<%- include('partials/fonts') %> 
+		<%- include('partials/icons') %> 
+		<%- include('partials/styles') %>
+		<link rel="stylesheet" href="/css/learning.css" />
+	</head>
+	<body>
+		<%- include('partials/header') %>
+        <main>
+            <section id="video">
+                <h1><%= video.title %></h1>
+                <video src="<%= video.video %>" alt="<%= video.title %>" title="<%= video.title %>" controls controlsList="nodownload"></video>
+                <% video.description.split("\n").forEach(paragraph => { %>
+                    <p class="description"><%= paragraph %></p>
+                <% }); %> 
+            </section>
+        </main>
+		<%- include('partials/footer') %> 
+		<%- include('partials/copyright') %>
+		<%- include('partials/scripts') %> 
+        <script src="/js/learn.js"></script>
+    </body>
+</html>

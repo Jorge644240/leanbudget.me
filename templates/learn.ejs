@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="author" content="Bletchley Technological Solutions Inc." />
+		<meta name="title" content=<%=title %> />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<title><%= title %></title>
+		<%- include('partials/fonts') %> 
+		<%- include('partials/icons') %> 
+		<%- include('partials/styles') %>
+		<link rel="stylesheet" href="/css/learn.css" />
+	</head>
+	<body>
+		<%- include('partials/header') %>
+        <main>
+            <h1>Learn</h1>
+            <section id="search">
+                <h2>
+                    Search
+                    <i class="bi-caret-down-fill"></i>
+                </h2>
+                <form id="videoSearch">
+                    <input type="text" name="keywords" id="keywords" placeholder="Keywords">
+                    <input type="submit" value="Search">
+                </form>
+            </section>
+            <p id="error"></p>
+            <section id="videos">
+                <% videos.forEach(video => { %> 
+                    <a class="video" href="/learn/<%= video.id %>">
+                        <video src="<%= video.video %>" title="<%= video.title %>" alt="<%= video.title %>"></video>
+                        <div class="text">
+                            <h3><%= video.title %></h3>
+                            <p class="description"><%= video.description.split("\n")[0] %></p>
+                        </div>
+                    </a>
+                <% }); %> 
+            </section>
+        </main>
+		<%- include('partials/footer') %> 
+		<%- include('partials/copyright') %>
+		<%- include('partials/scripts') %> 
+        <script src="/js/learn.js"></script>
+    </body>
+</html>

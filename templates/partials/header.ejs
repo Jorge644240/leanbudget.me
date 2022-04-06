@@ -1,15 +1,26 @@
 <header>
 	<nav>
 		<a href="/">Lean Budget</a>
-		<div>
-			<% if (path.includes("me/profile")) { %>
-			<a href="/me/budget">Budget</a>
-			<% } else if (path.includes("me/budget")) { %>
-			<a href="/me/profile">Profile</a>
-			<% } else { %>
-			<a href="/login">Login</a>
-			<a href="/signup">Sign Up</a>
-			<% } %>
-		</div>
+		<% if (path !== '/me/delete') { %>
+			<i class="bi-list"></i>
+			<div>
+				<% if (path.includes("/me")) { %>
+					<% if (path.includes("/profile")) { %>
+						<a href="/me/budget">Budget</a>
+					<% } else if (path.includes("/budget")) { %>
+						<a href="/me/profile">Profile</a>
+					<% } %> 
+					<a href="/me/logout">Logout</a> 
+				<% } else { %>
+					<a href="/features">Features</a>
+					<br>
+					<a href="/faq">FAQs</a>
+					<br>
+					<a href="/learn">Learn</a>
+					<br>
+					<a href="/login">Login</a>
+				<% } %>
+			</div>
+		<% } %>
 	</nav>
 </header>

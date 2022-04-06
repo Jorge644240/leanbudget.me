@@ -1,54 +1,195 @@
 main
 {
     padding: 2%;
-    border-bottom: 1px solid;
 }
 h1
 {
     text-align: center;
 }
-#profile
+.message, .error
 {
-    width: 65%;
-    margin: 2% auto 1%;
-    padding: 1% 2%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--background-color);
-    border-radius: 10px;
-}
-#profile > *
-{
-    width: 50%;
-}
-.attribute
-{
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.2rem;
     margin: 1% auto;
-    font-size: 1.3rem;
-    font-weight: 600;
-    font-family: 'Outfit';
-}
-.attribute + p
-{
-    text-align: right;
-}
-#profile > a
-{
     text-align: center;
-    margin: 2% 0 1%;
-    padding: 1% 2%;
-    border: 1px solid;
-    width: auto;
-    font-size: 0.9rem;
-    border-radius: 10px;
-    font-weight: 600;
-    transition: all 0.1s linear;
 }
-#profile > a:hover
+.error
 {
-    background-color: var(--text-color);
+    color: var(--danger-color);
+}
+.message
+{
+    color: var(--success-color);
+}
+form, .accounts, #danger
+{
+    width: 70%;
+    margin: 2% auto;
+    padding: 2%;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    border: 1px solid var(--headings-color);
+    transition: all 0.2s ease-in-out;
+}
+form:hover, .accounts:hover, #danger:hover
+{
+    box-shadow: 0 0 10px var(--headings-color);
+}
+form img
+{
+    display: none;
+    border-radius: 50%;
+    max-width: 15%;
+}
+form img.show
+{
+    display: inline-block;
+}
+form #picture, form #preview
+{
+    cursor: pointer;
+}
+form #preview
+{
+    filter: grayscale(0.8);
+}
+input[type="file"]
+{
+    display: none;
+}
+aside > *
+{
+    margin: 0.5rem 0;
+}
+h2
+{
+    margin-bottom: 0;
+}
+h2 i
+{
+    font-size: 1rem;
+    vertical-align: middle;
+    cursor: pointer;
+    display: none;
+}
+h2:hover i
+{
+    display: inline;
+}
+aside input[type=text]
+{
+    display: none;
+    padding: 0.2rem;
+    margin: 0.2rem 0 1%;
+    background-color: transparent;
+    border: none;
+    box-shadow: 0 2px 5px #000000A0;
+    font-family: inherit;
+    font-size: 1rem;
+}
+aside input:focus
+{
+    outline: none;
+}
+aside input.show
+{
+    display: inline-block;
+}
+form a
+{
+    display: inline-block;
+    text-decoration: underline;
+    text-transform: capitalize;
+}
+form a:first-of-type
+{
+    margin-right: 2%;
+}
+aside.submit
+{
+    display: none;
+}
+aside.submit.show
+{
+    display: block;
+}
+input[type=submit], input[type=reset]
+{
+    display: inline-block;
+    /* margin: 0; */
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 1rem;
+    background-color: transparent;
+    color: var(--text-color);
+    border-radius: 5px;
+    border: 1px solid;
+    padding: 0.5rem 3%;
+    cursor: pointer;
+}
+input[type=submit]:hover, input[type=submit]:focus
+{
+    outline: none;
+    background-color: var(--success-color);
+    color: var(--background-color);
+}
+input[type=reset]:hover, input[type=reset]:focus
+{
+    outline: none;
+    background-color: var(--danger-color);
+    color: var(--background-color);
+}
+.accounts > p
+{
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+.account
+{
+    padding: 0 0.5rem;
+    font-weight: 600;
+    cursor: default;
+    display: inline-block;
+}
+.account:hover
+{
+    color: var(--success-color);
+}
+.account i
+{
+    font-size: 1.2rem;
+    margin-right: 0.2rem;
+}
+.accounts h4
+{
+    color: var(--headings-color);
+    font-size: 1.2rem;
+    margin: 1% 0;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+.accounts div:not(.account)
+{
+    margin-left: 0.2rem;
+}
+#danger
+{
+    color: var(--danger-color);
+}
+#delete
+{
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: 1px solid;
+    cursor: pointer;
+    font-weight: 600;
+}
+#delete:hover
+{
+    background-color: var(--danger-color);
     color: var(--background-color);
 }

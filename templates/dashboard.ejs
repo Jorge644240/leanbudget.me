@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="author" content="Bletchley Technological Solutions Inc." />
+		<meta name="title" content=<%=title %> />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<title><%= title %></title>
+		<%- include('partials/fonts') %> 
+		<%- include('partials/icons') %> 
+		<%- include('partials/styles') %>
+        <script src="https://unpkg.com/vue@next"></script>
+        <link rel="stylesheet" href="/css/dashboard.css">
+    </head>
+    <body>
+        <main>
+			<a href="/admin/logout" id="logout">Logout</a>
+            <h1>Admin Dashboard</h1>
+			<h2>Admin Name: <%= admin.user %></h2>
+			<p class="message"><%= message %></p>
+			<p class="error"><%= error %></p>
+			<section id="dashboard">
+				<aside class="menu">
+					<button :class="{ active:profile }" id="profile" @click="showSection('profile')">
+						<i class="bi-gear-fill" title="Profile"></i>
+					</button>
+					<button :class="{ active:admins }" id="admins" @click="showSection('admins')">
+						<i class="bi-person-badge-fill" title="Admins"></i>
+					</button>
+					<button :class="{ active:features }" id="features" @click="showSection('features')">
+						<i class="bi-list-check" title="Features"></i>
+					</button>
+					<button :class="{ active:questions }" id="questions" @click="showSection('questions')">
+						<i class="bi-patch-question-fill" title="FAQs"></i>
+					</button>
+					<button :class="{ active:support }" id="support" @click="showSection('support')">
+						<i class="bi-info-circle-fill" title="Support Questions"></i>
+					</button>
+					<button :class="{ active:learn }" id="learn" @click="showSection('learn')">
+						<i class="bi-mortarboard-fill" title="Learning Videos"></i>
+					</button>
+					<button :class="{ active:users }" id="users" @click="showSection('users')">
+						<i class="bi-person-lines-fill" title="Users"></i>
+					</button>
+				</aside>
+				<aside id="display">
+					<div class="profile" v-if="profile">
+						<h3>
+							Admin Profile
+							<i class="bi-pencil-fill" :class="{ active:edit }" @click="displayForm('edit')"></i>
+						</h3>
+						<aside class="data">
+							<p>ID</p>
+							<p>Name</p>
+						</aside>
+						<div></div>
+						<aside class="editor">
+							<form action="/admin/dashboard/profile" method="POST" class="edit" v-if="profile && edit">
+								<h4>Edit admin profile</h4>
+								<input type="text" name="user" id="user" placeholder="New Username">
+								<input type="password" name="pass" id="pass" placeholder="New Password">
+								<input type="submit" name="action" value="Update profile">
+								<i class="bi-x-square-fill" title="Cancel" @click="hideForms"></i>
+							</form>
+						</aside>
+					</div>
+					<div class="admins" v-if="admins">
+						<h3>
+							System Admins
+							<i class="bi-plus-circle-fill" :class="{ active:create }" @click="displayForm('create')"></i>
+							<i class="bi-dash-circle-fill" :class="{ active:remove }" @click="displayForm('remove')"></i>
+						</h3>
+						<aside class="data">
+							<p>ID</p>
+							<p>Name</p>
+						</aside>
+						<div></div>
+						<aside class="editor">
+							<form action="/admin/dashboard/admins" method="POST" class="create" v-if="admins && create">
+								<h4>Create new admin</h4>
+								<input type="text" name="user" id="user" placeholder="Username" required>
+								<input type="submit" name="action" value="Create new admin">
+								<i class="bi-x-square-fill" title="Cancel" @click="hideForms"></i>
+							</form>
+							<form action="/admin/dashboard/admins" method="POST" class="remove" v-if="admins && remove">
+								<h4>Remove admin</h4>
+								<input type="text" name="user" id="user" placeholder="Username" required>
+								<input type="submit" name="action" value="Remove admin">
+								<i class="bi-x-square-fill" title="Cancel" @click="hideForms"></i>
+							</form>
+						</aside>
+					</div>
+					<div class="features" v-if="features">
+						<h3>
+							Features
+							<i class="bi-plus-circle-fill" :class="{ active:create }" @click="displayForm('create')"></i>
+							<i class="bi-dash-circle-fill" :class="{ active:remove }" @click="displayForm('remove')"></i>
+							<i class="bi-pencil-fill" :class="{ active:edit }" @click="displayForm('edit')"></i>
+						</h3>
+						<aside class="data">
+							<p>Icon</p>
+							<p>Title</p>
+							<p>Description</p>
+						</aside>
+						<div></div>
+						<aside class="editor">
+							<form action="/admin/dashboard/features" method="POST" class="create" v-if="features && create">
+								<h4>Create new feature</h4>
+								<input type="text" name="icon" id="icon" placeholder="Bootstrap Icons icon class">
+								<input type="text" name="title" id="title" placeholder="Title" required>
+								<br>
+								<textarea name="description" id="description" cols="50" rows="5" placeholder="Description" required></textarea>
+								<br>
+								<input type="submit" name="action" value="Create new feature">
+								<i class="bi-x-square-fill" title="Cancel" @click="hideForms"></i>
+							</form>
+							<form action="/admin/dashboard/features" method="POST" class="remove" v-if="features && remove">
+								<h4>Remove feature</h4>
+								<input type="text" name="title" id="title" placeholder="Title" required>
+								<input type="submit" name="action" value="Remove feature">
+								<i class="bi-x-square-fill" title="Cancel" @click="hideForms"></i>
+							</form>
+							<form action="/admin/dashboard/features" method="POST" class="edit" v-if="features && edit">
+								<h4>Edit feature</h4>
+								<input type="text" name="title" id="title" placeholder="Title" required>
+								<br>
+								<input type="text" name="newIcon" id="newIcon" placeholder="New icon class">
+								<input type="text" name="newTitle" id="newTitle" placeholder="New title">
+								<br>
+								<textarea name="newDescription" id="newDescription" cols="50" rows="5" placeholder="New description"></textarea>
+								<br>
+								<input type="submit" name="action" value="Update feature">
+								<i class="bi-x-square-fill" title="Cancel" @click="hideForms"></i>
+							</form>
+						</aside>
+					</div>
+					<div class="questions" v-if="questions">
+						<h3>
+							FAQs
+							<i class="bi-plus-circle-fill" :class="{ active:create }" @click="displayForm('create')"></i>
+							<i class="bi-dash-circle-fill" :class="{ active:remove }" @click="displayForm('remove')"></i>
+							<i class="bi-pencil-fill" :class="{ active:edit }" @click="displayForm('edit')"></i>
+						</h3>
+						<aside class="data">
+							<p>Question</p>
+							<p>Answer</p>
+						</aside>
+						<div></div>
+						<aside class="editor">
+							<form action="/admin/dashboard/faq" method="POST" class="create" v-if="questions && create">
+								<h4>Create new FAQ</h4>
+								<input type="text" name="question" id="question" placeholder="Question" required>
+								<br>
+								<textarea name="answer" id="answer" cols="50" rows="5" placeholder="Answer" required></textarea>
+								<br>
+								<select name="category" id="category">
+									<option value="General">General</option>
+									<option value="Account">Account</option>
+									<option value="Personal Data">Personal Data</option>
+									<option value="Pricing">Pricing</option>
+									<option value="Reports">Reports</option>
+								</select>
+								<br>
+								<input type="submit" name="action" value="Create new FAQ">
+								<i class="bi-x-square-fill" title="Cancel" @click="hideForms"></i>
+							</form>
+							<form action="/admin/dashboard/faq" method="POST" class="remove" v-if="questions && remove">
+								<h4>Remove FAQ</h4>
+								<input type="text" name="question" id="question" placeholder="Question" required>
+								<input type="submit" name="action" value="Remove FAQ">
+								<i class="bi-x-square-fill" title="Cancel" @click="hideForms"></i>
+							</form>
+							<form action="/admin/dashboard/faq" method="POST" class="edit" v-if="questions && edit">
+								<h4>Edit FAQ</h4>
+								<input type="text" name="question" id="question" placeholder="Question" required>
+								<br>
+								<input type="text" name="newQuestion" id="newQuestion" placeholder="New question">
+								<br>
+								<textarea name="newAnswer" id="newanswer" cols="50" rows="5" placeholder="New answer"></textarea>
+								<br>
+								<input type="submit" name="action" value="Update FAQ">
+								<i class="bi-x-square-fill" title="Cancel" @click="hideForms"></i>
+							</form>
+						</aside>
+					</div>
+					<div class="support" v-if="support">
+						<h3>
+							Support Questions
+							<i class="bi-pencil-fill" :class="{ active:edit }" @click="displayForm('edit')"></i>
+						</h3>
+						<aside class="filter">
+							<span>Filter by status: </span>
+							<select name="status" id="status" @input="showSection('support')">
+								<option value="all">All</option>
+								<option value="unsolved">Unsolved</option>
+								<option value="solved">Solved</option>
+							</select>
+						</aside>
+						<aside class="data">
+							<p>Name</p>
+							<p>Email</p>
+							<p>Message</p>
+						</aside>
+						<div></div>
+						<aside class="editor">
+							<form action="/admin/dashboard/support" method="POST" class="edit" v-if="support && edit">
+								<h4>Edit support question status</h4>
+								<input type="email" name="email" id="email" placeholder="Email" required>
+								<input type="submit" name="action" value="Update question">
+							</form>
+						</aside>
+					</div>
+					<div class="learn" v-if="learn">
+						<h3>
+							Learning Videos
+							<i class="bi-plus-circle-fill" :class="{ active:create }" @click="displayForm('create')"></i>
+							<i class="bi-dash-circle-fill" :class="{ active:remove }" @click="displayForm('remove')"></i>
+							<i class="bi-pencil-fill" :class="{ active:edit }" @click="displayForm('edit')"></i>
+						</h3>
+						<aside class="data">
+							<p>Title</p>
+							<p>Description</p>
+							<p>Video</p>
+						</aside>
+						<div></div>
+						<aside class="editor">
+							<form action="/admin/dashboard/learning" method="POST" class="create" v-if="learn && create" enctype="multipart/form-data">
+								<h4>Create new learning video</h4>
+								<input type="text" name="title" id="title" placeholder="Video title" required>
+								<br>
+								<textarea name="description" id="description" cols="50" rows="5" placeholder="Video description" required></textarea>
+								<br>
+								<input type="file" name="video" id="video" accept="video/mp4, video/mov" required>
+								<br>
+								<input type="submit" name="action" value="Create new video">
+								<i class="bi-x-square-fill" title="Cancel" @click="hideForms"></i>
+							</form>
+							<form action="/admin/dashboard/learning" method="POST" class="remove" v-if="learn && remove">
+								<h4>Remove learning video</h4>
+								<input type="text" name="title" id="title" placeholder="Video title" required>
+								<input type="submit" name="action" value="Remove video">
+								<i class="bi-x-square-fill" title="Cancel" @click="hideForms"></i>
+							</form>
+							<form action="/admin/dashboard/learning" method="POST" class="edit" v-if="learn && edit" enctype="multipart/form-data">
+								<h4>Edit learning video</h4>
+								<input type="text" name="title" id="title" placeholder="Video title" required>
+								<br>
+								<input type="text" name="newTitle" id="newTitle" placeholder="New video title">
+								<br>
+								<textarea name="newDescription" id="newDescription" cols="50" rows="5" placeholder="New video description"></textarea>
+								<br>
+								<input type="file" name="video" id="video" accept="video/mp4, video/mov">
+								<br>
+								<input type="submit" name="action" value="Update video">
+								<i class="bi-x-square-fill" title="Cancel" @click="hideForms"></i>
+							</form>
+						</aside>
+					</div>
+					<div class="users" v-if="users">
+						<h3>Users</h3>
+						<aside class="data">
+							<p>Name</p>
+							<p>Email</p>
+							<p>Date joined</p>
+						</aside>
+						<div></div>
+					</div>
+				</aside>
+			</section>
+        </main>
+        <script src="/js/dashboard.js"></script>
+    </body>
+</html>

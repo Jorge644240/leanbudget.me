@@ -1,9 +1,18 @@
 main
 {
-    background-color: var(--background-color);
     padding: 2% 2% 0;
+}
+h1
+{
+    text-transform: uppercase;
     text-align: center;
-    border-bottom: 1px solid;
+    margin-bottom: 0;
+}
+.date
+{
+    color: #00000060;
+    margin: 0 auto 5%;
+    text-align: center;
 }
 h2
 {
@@ -13,14 +22,11 @@ ul
 {
     list-style-type: none;
     margin: 1% 0;
+    padding: 0;
 }
 ul li
 {
-    padding: 2% 1%;
-}
-ul li:not(:last-of-type)
-{
-    border-bottom: 1px solid;
+    padding: 1%;
 }
 ul li p
 {

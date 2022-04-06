@@ -21,17 +21,18 @@
                 <p class="movement <%= budget.balance >= 0 ? "income" : "expense" %>">$<%= `${balance}`.split(".")[0]+"."+`${balance}`.split(".")[1].slice(0, 2) %></p>
             </aside>
             <section id="movements">
-                <h2>Your Movements</h2>
+                <h1>Your Movements</h1>
                 <form method="post">
                     <select name="movement" id="movement" required>
                         <option value="income">Income</option>
                         <option value="expense">Expense</option>
                     </select>
-                    <input type="number" name="amount" id="amount" placeholder="99.99" step=".01" min="0" required>
+                    <input type="number" name="amount" id="amount" placeholder="99.99" step=".01" min=".01" required>
+                    <input type="date" name="date" id="date" required>
                     <br>
                     <input type="submit" value="Add">
                 </form>
-                <% budget.movements.reverse().forEach(movement => { %> 
+                <% budget.movements.forEach(movement => { %> 
                     <aside>
                         <p class="date"><%= movement.date %></p>
                         <p class="movement <%= movement.movement %>">$<%= movement.amount %></p>
@@ -40,7 +41,8 @@
             </section>
         </main>
         <%- include('partials/footer') %> 
-        <%- include('partials/copyright') %> 
+        <%- include('partials/copyright') %>
+        <script src="/js/user.js"></script>
         <script src="/js/year.js"></script>
     </body>
 </html>

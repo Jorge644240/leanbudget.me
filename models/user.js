@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const encryption = require("mongoose-encryption");
 require("dotenv").config();
 
 const userSchema = new Schema({
@@ -17,8 +18,17 @@ const userSchema = new Schema({
     pass: {
         type: String,
         required: true
-    }
+    },
+    picture: String,
+    dateCreated: {
+        type: String,
+        required: true
+    },
+    passRecoveryID: String,
+    google: String
 });
+
+userSchema.plugin(encryption, {secret: process.env.USERS, excludeFromEncryption: ['_id', 'email']})
 
 const User = new model('User', userSchema);
 

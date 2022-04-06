@@ -25,10 +25,10 @@ router.get("/privacy", (req, res) => {
     });
 });
 
-router.get("/cookies", (req, res) => {
+router.get("/security", (req, res) => {
     res.render("policies", {
-        title: 'Cookie Policy',
-        policy: 'cookies',
+        title: 'Security Policy',
+        policy: 'security',
         path: ''
     });
 });

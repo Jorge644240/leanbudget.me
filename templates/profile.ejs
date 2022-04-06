@@ -7,23 +7,72 @@
         <%- include('partials/icons') %> 
         <link rel="stylesheet" href="/css/profile.css">
         <%- include('partials/styles') %> 
+        <% if (!user.google) { %>
+            <script src="https://accounts.google.com/gsi/client" async defer></script>
+            <script src="/js/parseJwt.js"></script>
+        <% } %>
     </head>
     <body>
-        <header>
-            <%- include('partials/header') %> 
-        </header>
+        <%- include('partials/header') %> 
         <main>
             <h1>Personal Profile</h1>
             <section id="profile">
-                <p class="attribute">Your Name</p>
-                <p class="value"><%= user.name %></p>
-                <p class="attribute">Your Email</p>
-                <p class="value"><%= user.email %></p>
-                <a href="/me/profile/update">Change Password</a>
+                <p class="error"><%= error %></p>
+                <p class="message"><%= message %></p>
+                <form method="POST" enctype="multipart/form-data">
+                    <% if (user.picture) { %>
+                        <img src="<%= user.picture %>" alt="<%= user.name %>" title="Update Profile Picture" class="show" id="picture">
+                    <% } else { %>  
+                        <img src="/css/svg/person.svg" alt="<%= user.name %>" title="Set Profile Picture" class="show" id="picture">
+                    <% } %>
+                    <img src="" alt="" id="preview">
+                    <input type="file" name="image" id="image" accept="image/jpeg, image/png">
+                    <aside>
+                        <h2 class="name">
+                            <%= user.name %>
+                            <i class="bi-pencil-square"></i>
+                        </h2>
+                        <input type="text" name="name" id="name" placeholder="Name Surname">
+                        <p class="email">(<%= user.email %>)</p>
+                        <a href="/me/profile/pass">Change password</a>
+                        <!-- <a href="/recovery">Recover password</a> -->
+                        <p>Joined: <%= new Date(user.dateCreated).toLocaleDateString() %></p>
+                    </aside>
+                    <aside class="submit">
+                        <input type="submit" value="Save">
+                        <input type="reset" value="Cancel">
+                    </aside>
+                </form>
+                <aside class="accounts">
+                    <h3>Social Accounts</h3>
+                    <% if (!user.google) { %>
+                        <p>No social accounts connected</p>
+                    <% } %>
+                    <% if (user.google) { %>
+                        <div class="account" title=<%= user.google %>>
+                            <i class="bi-google"></i>
+                            Connected
+                        </div>
+                    <% } %>
+                    <% if (!user.google) { %>
+                        <h4>Connect</h4>
+                        <% if (!user.google) { %>
+                            <div id="gsiConnect"></div>
+                        <% } %> 
+                    <% } %>
+                </aside>
+                <aside id="danger">
+                    <h3>Danger Zone</h3>
+                    <a id="delete">Delete Account</a>
+                </aside>
             </section>
         </main>
         <%- include('partials/footer') %> 
         <%- include('partials/copyright') %> 
+        <script src="/js/profile.js"></script>
         <script src="/js/year.js"></script>
+        <% if (!user.google) { %>
+            <script src="/js/gsiConnect.js"></script>
+        <% } %>
     </body>
 </html>

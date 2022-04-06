@@ -1,0 +1,86 @@
+main
+{
+    padding: 2% 0;
+}
+h1
+{
+    margin: 0 auto 2%;
+}
+section.category
+{
+    padding: 0 2% 1%;
+}
+h2
+{
+    padding: 0 1% 1%;
+    border-bottom: 1px solid;
+    width: auto;
+}
+.faq
+{
+    margin: 1%;
+}
+.faq p
+{
+    margin: 0;
+}
+.question
+{
+    font-weight: 600;
+    padding: 1%;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-bottom: 1px solid;
+    transition: all 0.2s ease-in-out;
+}
+.faq.active .question, .question:hover
+{
+    background-color: var(--text-color);
+    color: #FFFFFF;
+}
+.question i
+{
+    font-size: 0.9rem;
+}
+.answer
+{
+    height: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: all 0.2s ease-in-out;
+    font-weight: 500;
+    background-color: #FFFFFF;
+}
+.faq.active .answer
+{
+    height: 100%;
+    padding: 1%;
+    transform: scaleY(1);
+    border: 1px solid var(--text-color);
+    border-top: none;
+}
+.faq .answer p
+{
+    margin-top: 0;
+}
+.faq .answer p:not(:last-of-type)
+{
+    margin-bottom: 1%;
+}
+main a 
+{
+    color: var(--headings-color);
+    text-decoration: underline;
+}
+main > p
+{
+    margin: 1% auto 0;
+    text-align: center;
+    line-height: 1.5;
+}
+main > p span
+{
+    font-size: 1.2rem;
+    color: var(--headings-color);
+    font-weight: 600;
+}

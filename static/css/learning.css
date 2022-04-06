@@ -1,0 +1,21 @@
+main
+{
+    padding: 2%;
+}
+video
+{
+    max-width: 70%;
+    margin: 2% auto;
+    display: block;
+}
+p.description
+{
+    width: 70%;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+p.description:not(:last-of-type)
+{
+    margin-bottom: 1%;
+}

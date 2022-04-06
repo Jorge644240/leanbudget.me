@@ -1,0 +1,117 @@
+main
+{
+    padding-top: 2%;
+}
+h1
+{
+    margin: 0 auto 2%;
+}
+#search, #videos
+{
+    padding: 0 2% 1%;
+}
+#search h2
+{
+    font-size: 1.8rem;
+    cursor: pointer;
+    font-weight: 500;
+}
+#search h2 i
+{
+    font-size: 1.2rem;
+}
+#search form
+{
+    height: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: all 0.2s ease-in-out;
+}
+#search form.active
+{
+    height: 100%;
+    padding: 1%;
+    transform: scaleY(1);
+}
+form input
+{
+    font-size: 1rem;
+    font-family: inherit;
+    border: none;
+    border-bottom: 1px solid;
+    padding: 0.3rem;
+}
+form input:focus
+{
+    outline: none;
+    box-shadow: 0 2px 5px var(--text-color);
+}
+form input[type=submit]
+{
+    background-color: transparent;
+    padding: 0.3rem 0.5rem;
+    margin-left: 1%;
+    border: 1px solid;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.1s ease-in-out;
+}
+form input[type=submit]:hover, form input[type=submit]:focus
+{
+    background-color: var(--success-color);
+    color: #FFFFFF;
+    border-color: var(--success-color);
+    box-shadow: 2px 2px 5px var(--success-color);
+}
+p#error
+{
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--danger-color);
+    text-align: center;
+    margin-top: 0;
+}
+#videos 
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+.video
+{
+    width: calc(100%/3.6);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    margin: 1%;
+}
+.video:hover
+{
+    box-shadow: 0 0 10px var(--text-color);
+}
+video
+{
+    max-width: 100%;
+    margin: 0 auto;
+}
+.video .text
+{
+    padding: 1% 3% 4%;
+}
+h3
+{
+    font-size: 1.5rem;
+    margin-bottom: 2%;
+}
+h3, .video p
+{
+    margin-top: 0;
+}
+.video p
+{
+    margin-bottom: 0;
+    line-height: 1.3;
+    color: var(--text-color);
+}

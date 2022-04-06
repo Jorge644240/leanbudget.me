@@ -1,0 +1,26 @@
+main
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 80vh;
+    border-bottom: 1px solid;
+}
+main > i
+{
+    font-size: 3rem;
+}
+main > p
+{
+    position: absolute;
+    bottom: 3%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-weight: 600;
+}

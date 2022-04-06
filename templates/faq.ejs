@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="author" content="Bletchley Technological Solutions Inc." />
+		<meta name="title" content=<%=title %> />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<title><%= title %></title>
+		<%- include('partials/fonts') %> 
+		<%- include('partials/icons') %> 
+		<%- include('partials/styles') %>
+		<link rel="stylesheet" href="/css/faq.css" />
+	</head>
+	<body>
+		<%- include('partials/header') %>
+        <main>
+            <h1>FAQs</h1>
+            <% categories.forEach((category, categoryIndex) => { %> 
+                <section class="category">
+                    <h2><%= category %></h2>
+                    <% faqs.filter(faq => faq.category === category).forEach((faq, faqIndex) => { %>
+                        <aside class="faq <%= faqIndex===0&&categoryIndex===0 ? "active" : "" %> ">
+                            <p class="question">
+                                <%= faq.question %>
+                                <i class="bi-caret-down-fill"></i>
+                            </p>
+                            <div class="answer"><%- faq.answer %></div>
+                        </aside>
+                    <% }); %>  
+                </section>
+            <% }); %> 
+            <p><span>Didn't find the answer to your question?</span><br>Feel free to reach out to us <em><a href="/support">here</a></em> and we'll get back to you as soon as possible.</p>
+        </main>
+		<%- include('partials/footer') %> 
+		<%- include('partials/copyright') %>
+		<%- include('partials/scripts') %> 
+        <script src="/js/faq.js"></script>
+    </body>
+</html>

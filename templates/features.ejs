@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="author" content="Bletchley Technological Solutions Inc." />
+		<meta name="title" content=<%=title %> />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<title><%= title %></title>
+		<%- include('partials/fonts') %> 
+		<%- include('partials/icons') %> 
+		<%- include('partials/styles') %>
+		<link rel="stylesheet" href="/css/features.css" />
+	</head>
+	<body>
+		<%- include('partials/header') %>
+        <main>
+            <h1>Features</h1>
+			<aside class="links">
+				<% features.forEach(feature => {%>
+					<a href="#<%= feature.id %>"><%= feature.title %></a>
+				<% }) %>
+			</aside>
+            <% features.forEach(feature => { %> 
+                <aside class="feature" id="<%= feature.id %>">
+                    <h2>
+                        <i class="bi-<%= feature.icon %>"></i>
+                        <br>
+                        <%= feature.title %>
+                    </h2>
+                    <%- feature.description %>
+                </aside>
+				<hr>
+            <% }) %> 
+        </main>
+		<%- include('partials/footer') %> 
+		<%- include('partials/copyright') %>
+		<%- include('partials/scripts') %> 
+    </body>
+</html>

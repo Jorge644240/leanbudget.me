@@ -1,0 +1,254 @@
+#logout
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5rem 0.8rem;
+    text-transform: uppercase;
+    color: var(--headings-color);
+    border: 1px solid var(--headings-color);
+    transition: all 0.1s linear;
+}
+#logout:hover, #logout:focus
+{
+    background-color: var(--headings-color);
+    color: var(--background-color);
+    font-weight: 600;
+}
+h1
+{
+    text-align: center;
+    padding: 2% 0 0;
+}
+h2
+{
+    text-align: center;
+    color: var(--text-color);
+    font-size: 1.2rem;
+}
+p.message, p.error
+{
+    margin: 2% 0;
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
+p.message
+{
+    color: var(--success-color);
+}
+p.error
+{
+    color: var(--danger-color);
+}
+section
+{
+    min-height: 80vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+section > *
+{
+    height: 100%;
+}
+.menu button
+{
+    appearance: none;
+    border: 0;
+    background-color: transparent;
+    color: var(--text-color);
+    font-size: 2rem;
+    padding: 0.5rem;
+    display: block;
+    cursor: pointer;
+    border-left: 5px solid transparent;
+    transition: all 0.1s linear;
+}
+.menu button.active, .menu button:hover
+{
+    color: var(--headings-color);
+}
+.menu button.active
+{
+    border-left: 5px solid;
+}
+#display
+{
+    width: 90%;
+}
+h3
+{
+    margin-bottom: 1%;
+    font-weight: 600;
+} 
+h3 i
+{
+    cursor: pointer;
+    transition: all 0.2s linear;
+    font-size: 1.2rem;
+    margin-left: 1%;
+    color: var(--text-color);
+}
+h3 i:hover, h3 i.active
+{
+    color: var(--headings-color);
+}
+.data
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+aside.data
+{
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.data > *
+{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 1%;
+    border-bottom: 1px solid;
+}
+.data > *:not(:last-child)
+{
+    margin-right: 2%;
+}
+.editor
+{
+    padding: 1%;
+}
+h4
+{
+    margin: 1% 0;
+    color: var(--headings-color);
+    text-transform: capitalize;
+}
+form input, textarea, select
+{
+    padding: 0.5rem;
+    font-family: inherit;
+    color: var(--text-color);
+    border: none;
+    border-bottom: 1px solid;
+    margin: 0 1%;
+    font-size: 1rem;
+    transition: all 0.1s linear;
+}
+textarea
+{
+    margin: 1%;
+}
+select
+{
+    margin-bottom: 1%;
+    width: 15%;
+}
+form input:not([type="submit"]):focus, textarea:focus, select:focus
+{
+    box-shadow: 0 5px 0.5rem var(--text-color);
+    outline: none;
+}
+input[type="submit"]
+{
+    border: 1px solid;
+    background-color: transparent;
+    cursor: pointer;
+    font-weight: 600;
+}
+input[type="submit"]:hover, input[type="submit"]:focus
+{
+    color: var(--background-color);
+    outline: none;
+}
+.create input[type="submit"]:hover, .create input[type="submit"]:focus
+{
+    background-color: var(--success-color);
+}
+.edit input[type="submit"]:hover, .edit input[type="submit"]:focus
+{
+    background-color: var(--headings-color);
+}
+.remove input[type="submit"]:hover, .remove input[type="submit"]:focus
+{
+    background-color: var(--danger-color);
+}
+form i
+{
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: all 0.1s linear;
+}
+form i:hover, form i:focus
+{
+    color: var(--danger-color);
+}
+.profile .data > p, .admins .data > p, .questions .data > *
+{
+    width: 45%;
+}
+.features .data > p, .support .data > p, .learn .data > p, .users .data > p
+{
+    width: 30%;
+}
+.features div.data > p, .support div.data > p, .questions div.data > *
+{
+    height: 15vh;
+    overflow: auto;
+}
+.features .data i
+{
+    font-size: 1.5rem;
+}
+.features .edit input:first-of-type, .questions .edit input:first-of-type, .learn .edit input:first-of-type
+{
+    margin-bottom: 1%;
+}
+.questions div.data > div p
+{
+    margin: 0;
+}
+.filter
+{
+    padding: 1% 0;
+}
+.filter select
+{
+    padding: 0.2rem;
+    font-family: inherit;
+    border: none;
+    border-bottom: 1px solid;
+    cursor: pointer;
+    font-weight: 500;
+}
+.filter select:focus, .filter select:hover
+{
+    outline: none;
+    box-shadow: 0 0 0.5rem var(--text-color);
+}
+.learn div.data > p
+{
+    height: 30vh;
+    overflow: auto;
+}
+.learn div.data > p:last-of-type
+{
+    text-align: center;
+}
+.learn video
+{
+    width: 85%;
+    height: auto;
+}
+.learn input[type="file"]
+{
+    margin-bottom: 1%;
+}

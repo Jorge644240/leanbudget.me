@@ -1,0 +1,23 @@
+<body style="padding: 2%;">
+    <h1 style="font-family: Arial, Helvetica, sans-serif; color: #0059ca; margin: 0; width: 100%; font-weight: 700; text-align: center; margin: 1% auto 2%;">Lean Budget</h1>
+    <p>Hello there, <strong><%= name %></strong>!</p>
+    <p>This <%= month %> your money had <strong><%= budget.movements.length %> movements</strong>.</p>
+    <% if (budget.movements.length > 0) { %>
+        <p>Last one of these was on <%= new Date(budget.movements[0].date).toDateString() %>.</p>
+    <% } %>  
+    <p>
+        Attached you'll find your monthly report as an HTML file <em>(<%= month %> Report - Lean Budget)</em>.
+        <br>
+        <strong>Download it and save it</strong> somewhere you can easily find it so you can go back over it whenever you might need to.
+    </p>
+    <p>If you have any <em>ideas or suggestions</em> on how to make the platform or the reports better, feel free to contact us at <a href="mailto:contact@leanbudget.me">contact@leanbudget.me</a>.</p>
+    <p>To get started tracking your money for this coming month, <strong>click the button below</strong>:</p>
+    <a href="leanbudget.me/me/budget" style="text-decoration: none; display: block; width: 30%; margin: 0 auto; border: 1px solid; border-radius: 5px; padding: 1% 2%; font-weight: 600; cursor: pointer; text-transform: uppercase; background-color: #0059ca; color: #efefff; text-align: center;">
+        Add Movement(s)
+    </a>
+    <p>
+        If the button above doesn't work, click <a href="leanbudget.me/me/budget">here</a> or copy and paste the following link to your browser's URL bar:
+        <br>
+        <em style="color: #000000; text-decoration: none;">leanbudget.me/me</em>
+    </p>
+</body>

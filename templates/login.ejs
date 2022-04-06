@@ -10,31 +10,51 @@
         <link rel="stylesheet" href="/css/links.css">
         <link rel="stylesheet" href="/css/body.css">
         <link rel="stylesheet" href="/css/login.css">
+        <% if (!path.includes("admin")) { %>
+            <script src="https://accounts.google.com/gsi/client" async defer></script>
+            <script src="/js/parseJwt.js"></script>
+        <% } %>
     </head>
     <body>
-        <h1><%= action %></h1>
-        <form method="POST">
-            <% if (action ==="Sign Up") { %>
-                <label for="name">Name *</label>
-                <input type="text" name="name" id="name" required>
-            <% } %>
-            <label for="email">Email *</label>
-            <input type="email" name="email" id="email" required>
-            <label for="pass">Password *</label>
-            <input type="password" name="pass" id="pass" minlength="10" maxlength="25" required>
-            <p id="message">
-                <% if (error) { %>
-                    <%= error %><br>
-                <% } if (action === "Log In") { %>
-                    <a href="/recovery">Forgot your password?</a>
+        <% if (path === "/admin/login") { %>
+            <h1>Admin Login</h1>
+            <form method="post">
+                <label for="user">Username *</label>
+                <input type="text" name="user" id="user" required>
+                <label for="pass">Password *</label>
+                <input type="password" name="pass" id="pass" required>
+                <p id="error"><%= error %></p>
+                <input type="submit" value="Log In">
+            </form>
+        <% } else { %>
+            <h1><%= action %></h1>
+            <form method="POST">
+                <% if (action ==="Sign Up") { %>
+                    <label for="name">Name *</label>
+                    <input type="text" name="name" id="name" required>
+                <% } %>
+                <label for="email">Email *</label>
+                <input type="email" name="email" id="email" required>
+                <label for="pass">Password *</label>
+                <input type="password" name="pass" id="pass" minlength="10" maxlength="25" required>
+                <% if (action === "Log In") { %>
+                    <!-- <a href="/recovery">Forgot your password?</a> -->
                 <% } %> 
-            </p>
-            <input type="submit" value="<%= action %>">
-        </form>
-        <% if (action == "Sign Up") { %>
-            <p>Already have an account? <a href="/login">Log In</a></p>
-        <% } else if (action === "Log In") { %>
-            <p>Don't have an account yet? <a href="/signup">Sign Up</a></p>
-        <% } %>
+                <p id="error">
+                    <%= error %>
+                </p>
+                <input type="submit" value="<%= action %>">
+                <aside class="socials">
+                    <p>Or <%= action %> with</p>
+                    <div id="gsiButton"></div>
+                </aside>
+            </form>
+            <% if (action == "Sign Up") { %>
+                <p>Already have an account? <a href="/login">Log In</a></p>
+            <% } else if (action === "Log In") { %>
+                <p>Don't have an account yet? <a href="/signup">Sign Up</a></p>
+            <% } %>
+            <script src="/js/gsi.js"></script>
+        <% } %> 
     </body>
 </html>

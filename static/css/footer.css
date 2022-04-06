@@ -7,6 +7,7 @@ footer
     align-items: flex-start;
     padding: 2%;
     border-bottom: 1px solid;
+    border-top: 1px solid;
 }
 footer > aside
 {
@@ -60,4 +61,12 @@ aside.links .link i
 aside.links .link:hover i
 {
     opacity: 1;
+}
+@media screen and (max-width: 550px)
+{
+    footer > aside:first-of-type, footer > aside.links
+    {
+        width: 100%;
+        padding: 2% 1%;
+    }
 }

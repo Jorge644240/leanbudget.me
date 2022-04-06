@@ -5,6 +5,7 @@ body
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    text-align: center;
     min-height: 100vh;
 }
 form
@@ -34,6 +35,13 @@ form > input:not([type="submit"])
 form > input:not([type="submit"]):focus
 {
     outline: none;
+}
+#error
+{
+    color: var(--danger-color);
+    margin: 4% 0;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 form > input[type="submit"]
 {

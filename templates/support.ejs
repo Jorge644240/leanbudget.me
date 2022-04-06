@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="author" content="Bletchley Technological Solutions Inc." />
+		<meta name="title" content=<%=title %> />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<title><%= title %></title>
+		<%- include('partials/fonts') %> 
+		<%- include('partials/icons') %> 
+		<%- include('partials/styles') %>
+		<link rel="stylesheet" href="/css/support.css" />
+	</head>
+	<body>
+		<%- include('partials/header') %>
+        <main>
+            <h1>Support</h1>
+            <p><strong>Need a hand?</strong><br>Send us a request and we'll get back to you as soon as possible.</p>
+            <p class="error"><%= error %></p>
+            <p class="message"><%= message %></p>
+            <form method="POST">
+                <label for="name">Name *</label>
+                <input type="text" name="name" id="name" placeholder="John Doe" required>
+                <label for="email">Email *</label>
+                <input type="email" name="email" id="email" placeholder="example@example.com" required>
+                <label for="message">Message *</label>
+                <textarea name="message" id="message" placeholder="I've been trying to log in but forgot my password. How do I recover it?" cols="30" rows="10" required></textarea>
+                <input type="submit" value="Send">
+            </form>
+        </main>
+		<%- include('partials/footer') %> 
+		<%- include('partials/copyright') %>
+		<%- include('partials/scripts') %> 
+		<script src="/js/support.js"></script>
+    </body>
+</html>
