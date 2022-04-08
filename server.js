@@ -18,6 +18,8 @@ require("dotenv").config();
 const app = express();
 const port = 3016;
 
+app.disable("x-powered-by");
+
 connect(process.env.MONGODB_DATABASE_URL);
 
 app.use(express.static(path.join(__dirname, "static")));
@@ -32,7 +34,6 @@ app.all((req, res, next) => {
     res.setHeader('X-Content-Type-Options', 'nosniff');
     res.setHeader('X-XSS-Protection', '1; mode=block');
     res.setHeader('X-Frame-Options', 'DENY');
-    res.removeHeader('X-Powered-By');
     next();
 });
 
