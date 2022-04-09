@@ -13,12 +13,11 @@ const user = require("./routing/user");
 const policies = require("./routing/policies");
 const files = require("./routing/files");
 const admin = require("./routing/admin");
+const error = require("./routing/error");
 const { connect } = require("mongoose");
 require("dotenv").config();
 const app = express();
 const port = 3016;
-
-app.disable("x-powered-by");
 
 connect(process.env.MONGODB_DATABASE_URL);
 
@@ -28,6 +27,7 @@ app.use(bodyParser.urlencoded({ extended:true }));
 app.use(cors());
 app.set("view engine", "ejs");
 app.set("views", "templates");
+app.disable("x-powered-by");
 
 app.all((req, res, next) => {
     res.setHeader('Strict-Transport-Security', 'max-age=31536000');
@@ -56,5 +56,7 @@ app.use("/policies", policies);
 app.use(files);
 
 app.use("/admin", admin);
+
+app.use(error);
 
 app.listen(port);

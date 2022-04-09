@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<%- include('partials/meta') %> 
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<%- include('partials/fonts') %> 
+		<%- include('partials/icons') %> 
+		<%- include('partials/styles') %>
+        <link rel="stylesheet" href="/css/error.css">
+    </head>
+    <body>
+		<%- include('partials/header') %>
+        <main>
+            <h1><%= code %> Error</h1>
+            <p class="message"><%= message %></p>
+			<% if (code === 404) { %>
+				<p>Check the URL or use the links in the website</p>
+			<% } else if (code === 500) { %>
+				<p>Please try again later</p>
+			<% } %>   
+        </main>
+		<%- include('partials/footer') %> 
+		<%- include('partials/copyright') %>
+		<%- include('partials/scripts') %> 
+    </body>
+</html>
