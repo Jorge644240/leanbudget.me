@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
     });
 });
 
-router.get(["/cookies", "/terms", "/privacy"], (req, res) => {
+router.get(["/cookies", "/terms", "/privacy", "/security"], (req, res) => {
     res.redirect(`/policies${req.path}`);
 });
 
